@@ -40,6 +40,7 @@ def isBlack(pixel):
 
 
 def draw(img):
+    print('開始繪製-->')
     img = cv2.cvtColor(img, cv2.COLOR_BGR2BGRA)
     h, w = img.shape[0:2]
     count = 0
@@ -52,6 +53,9 @@ def draw(img):
                     if count == N:
                         count = 0
                         time.sleep(S)
+    print('滑鼠點擊事件全數傳送完畢')
+    print('如有繪製錯誤請降低傳送事件速率')
+    print('------------------------------')
 
 
 def edge(img):
@@ -61,10 +65,10 @@ def edge(img):
     return img_edge
 
 
-def resize(filepath):
+def resize(filename):
     x, y = X2-X1, Y2-Y1
     min_side = y if x > y else x
-    img = cv_imread(filepath)
+    img = cv_imread(filename)
     h, w = img.shape[0:2]
 
     scale = max(w, h) / float(min_side)
@@ -98,5 +102,5 @@ if __name__ == "__main__":
     for files in types:
         file_list.extend(glob('images/' + files))
 
-    for filepath in file_list:
-        draw(edge(resize(filepath)))
+    for filename in file_list:
+        draw(edge(resize(filename)))
