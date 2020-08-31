@@ -46,6 +46,7 @@ def draw(img):
     count = 0
     for i in range(h):
         for j in range(w):
+            # 減少黑點數量
             if i % 2 == 0 and j % 2 == 0:
                 if isBlack(img[i][j]):
                     count += 1
@@ -97,7 +98,7 @@ if __name__ == "__main__":
     if not os.path.exists('images'):
         os.makedirs('images')
 
-    types = ('*.jpg', '*.png')  # the tuple of file types
+    types = ('*.jpg', '*.png')
     file_list = []
     for files in types:
         file_list.extend(glob('images/' + files))
