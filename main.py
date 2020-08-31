@@ -1,10 +1,10 @@
-import cv2
-import numpy as np
-
 import os
 import time
 import ctypes
 from glob import glob
+
+import cv2
+import numpy as np
 
 
 # 筆畫粗細
